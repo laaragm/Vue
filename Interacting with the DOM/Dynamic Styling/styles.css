@@ -1,0 +1,47 @@
+.demo {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    display: inline-block;
+    margin: 10px;
+}
+
+.red {
+    background-color: red;
+}
+
+.violet {
+    background-color: blueviolet;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.black {
+    background-color: black;
+}
+
+.white {
+    background-color: white;
+}
+
+.orange {
+    background-color: orange;
+}

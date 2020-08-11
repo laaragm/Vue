@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Intro</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <!-- Diretivas são prefixadas com v- para indicar que são atributos especiais 
+        providos pelo Vue; aplicam comportamento especial de reatividade ao DOM renderizado -->
+        <!-- v-on: Attaches an event listener to the element -->
+        <input type="text" v-on:input="changeTitle">
+        <!-- The curly brances syntax is also called interpolation -->
+        <p>{{ title }}</p>
+        <!-- v-bind lets you bind an HTML attribute to a JavaScript expression -->
+        <a v-bind:href="link">Google</a>
+        <!-- By adding v-once to an element, all the content inside of this element
+        will only be rendered once, it will not be updated if it changes later on -->
+        <h1 v-once>{{ greeting }}</h1>
+        <!-- We can only use curly brances in the place where we would normally use text,
+         not on html elements -->
+        <p>{{ sayHello() }}</p>
+        <!-- Vue doesn't render html elements, it only renders text, so if you want
+        to do this you'll have to use v-html -->
+        <!-- Use this carefully because it does expose you to cross-site scripting
+        attacks if this is possibly some content which for example gets created
+        by the user and thus you cannot control what's place inside of it -->
+        <p v-html="finishedLink"></p>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening to Events</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- You can use any existing DOM event for the button -->
+        <!-- You can use either v-on or @ -->
+        <button v-on:click="increase(2, $event)">Click me</button>
+        <button @click="counter++">Click me</button>
+        <p>Counter: {{ counter }}</p>
+        <p>Result: {{ result() }} | {{ output }}</p>
+        <p v-on:mousemove="updateCoordinates">
+            Coordinates: {{ x }} / {{ y }}
+            <!-- .stop is used to stop propagation -->
+            <span v-on:mousemove.stop="">DEAD SPOT</span>
+        </p>
+        <!-- v-model: two way binding; This will output the name and it'll also 
+        listen to changes (in this case whenever we change the content of the text field)
+        and then it'll update our name property in the vue instance -->
+        <input type="text" v-model="name">
+        <p>{{ name }}</p>
+        <!-- When listening for keyboard events, we often need to check for specific keys.
+        Vue allows adding key modifiers for v-on when listening for key events -->
+        <input type="text" v-on:keyup.enter.space="alertMe">
+        <!-- You can use either v-bind or : -->
+        <a v-bind:href="google">Google</a>
+        <a :href="yahoo">Yahoo</a>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

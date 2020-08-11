@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Styling</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- Remember that: -->
+        <!-- v-on:click == @click -->
+        <!-- v-bind:class == :class -->
+        <div class="demo" @click="attachRed = !attachRed" :class="divClasses"></div>
+        <div class="demo" :class="{red: attachRed}"></div>
+        <div class="demo" @click="attachPink = !attachPink" :class="{pink: attachPink}"></div>
+        <div class="demo" @click="attachPurple = !attachPurple" :class="{purple: attachPurple}"></div>      
+        <hr>
+        <div class="demo" :class="color"></div>  
+        <input type="text" v-model="color">
+        <hr>
+        <div class="demo" :style="[myStyle, {height: width + 'px'}]"></div>
+        <div class="demo" :style="myStyle"></div>
+        <input type="text" v-model="width">
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
