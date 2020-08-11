@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- v-for loops through our array -->
+        <ul>
+            <li v-for="fruit in fruits"> {{ fruit }} </li>
+        </ul>
+        <!-- The order matters here: first comes the value of the element and then the index -->
+        <ul>
+            <li v-for="(fruit, index) in fruits">{{ fruit }} - {{ index }}</li>
+        </ul>
+        <!-- Alternative syntax -->
+        <!-- <template v-for="(fruit, index) in fruits">
+            <p>{{ fruit }}</p>
+            <p>{{ index }}</p>
+        </template> -->
+
+        <hr>
+        <!-- Looping through objects -->
+        <ul>
+            <li v-for="person in people">{{ person }}</li>
+        </ul>
+
+        <ul>
+            <li v-for="person in people">{{ person.name }}</li>
+        </ul>
+
+        <ul>
+            <li v-for="person in people">
+                <div v-for="(value, key, index) in person">
+                    {{ key }}: {{ value }} ({{ index }})
+                </div>
+            </li>
+        </ul>
+
+        <!-- Looping through a list of numbers -->
+        <ul>
+            <span v-for="number in 10">{{ number }}</span>
+        </ul>
+
+        <!-- Keeping track of elements when using v-for -->
+        <ul>
+            <li v-for="(fruit, index) in fruits" :key="fruit">{{fruit}} ({{ index }})</li>
+        </ul>
+        <button @click="fruits.push('lemon')">Add new</button>
+
+        <hr>
+        <!-- v-if really attaches or detaches elements to the DOM; It not just
+        hides them, it completely removes them if you have a false condition
+        for example) -->
+        <!-- There's also v-else-if -->
+        <p v-if="show">You can see me! This is the if statement</p>
+        <p v-else>Now you see me! This is the else statement</p>
+        <p>Do you also see me?</p>
+        <button @click="show = !show">Switch</button>
+
+        <!-- template is also a valid option to group multiple elements
+        you want to show or hide or attach or detach to be precise together -->
+        <!-- The difference between v-if and v-show is that v-show only hides the
+        element, it doesn't remove it like v-if does -->
+        <template v-if="show">
+            <p>This is the if show directive</p>
+            <button @click="show = !show">Click me</button>
+        </template>
+
+        
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
